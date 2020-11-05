@@ -31,26 +31,50 @@ var myChart = new Chart(ctx, {
     data: {
         labels: ['ab', 'avg', 'babip', 'h', 'hr', 'obp', 'ops', 'r', 'rbi', 'sb', 'slg', 'so', 'vorp', 'warp'],
         datasets: [{
-            label: 'Batters',
-            data: [],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
+            label: 'Mike Trout',
+            data: [
+    .470,
+    .291,
+    .298,
+    137,
+    45,
+    .438,
+    1.083,
+    110,
+    104,
+    11,
+    .645,
+    120,
+    81.5,
+    9.34
+    ],
+            backgroundColor: '#45b6f3',
+            borderColor: '#3792cb',
+            borderWidth: 2
+        },
+        {label: 'Cody Bellinger',
+            data: [
+    .558,
+    .305,
+    .302,
+    170,
+    47,
+    .406,
+    1.035,
+    121,
+    115,
+    15,
+    .629,
+    108,
+    66.2,
+    8.91
+    ],
+            backgroundColor: '#ff3d41',
+            borderColor: '#ff0000',
+            borderWidth: 2}
+        ]
+
+        
     },
     options: {
         scales: {
