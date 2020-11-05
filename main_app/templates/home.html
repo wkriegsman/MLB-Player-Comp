@@ -1,4 +1,24 @@
 {% extends 'base.html' %}
+<script>
+{% block jquery %}
+const endpoint = '/api/data/'
+
+$.ajax({
+    method: "GET",
+    url: endpoint,
+    success: function(data){
+        console.log(data)
+    },
+    error: function(error_data){
+        console.log("error")
+        console.log(error_data)
+    }
+})
+{% endblock %}
+
+</script>
+
+
 {% block content %}
 
 <h1>MLB Player Comparison</h1>
