@@ -5,6 +5,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.views.generic import ListView
 from .models import Batters, Pitchers, Player, Homeruns
+from .forms import Player_Form
 
 # Create your views here.
 def home(request):
@@ -12,9 +13,16 @@ def home(request):
 
 # index page
 def players(request):
+    if request.method == 'POST':
+        player_form = Player_Form(request.POST)
+        if player.form.is_valid():
+            player_form.save()
+            return redirect('players')
     players = Player.objects.all()
     print(players)
-    return render(request, 'players.html', {'players': players})  
+    player_form = Player_Form()
+    context = {'players': players, 'player_form': player_form}
+    return render(request, 'players.html', context)  
 
 # show page
 def player_detail(request, player_id):
@@ -22,7 +30,25 @@ def player_detail(request, player_id):
     context = {'player': player}
     return render(request, 'players/detail.html', context) 
          
+# edit and update
+def player_edit(request, player_id):
+  player = Player.objects.get(id=player_id)
+  if request.method == 'POST':
+    player_form = Player_Form(request.POST, instance=player)
+    if player_form.is_valid():
+      player_form.save()
+      return redirect('detail', player_id=player_id)
+  else:  
+    player_form = Player_Form(instance=player)
+  context = {'player': player, 'player_form': player_form}
+  return render(request, 'player/edit.html', context)
 
+# delete
+def player_delete(request, player_id):
+    Player.objects.get(id=player_id).delete()
+    return redirect("players")
+
+    
 def batters(request):
     return render(request, 'batters.html')
 
