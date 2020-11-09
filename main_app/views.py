@@ -4,11 +4,17 @@ from django.http import JsonResponse
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.views.generic import ListView
-from .models import Batters, Pitchers
+from .models import Batters, Pitchers, Player, Homeruns
 
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
+
+def players(request):
+    players = Player.objects.all()
+    print(players)
+    return render(request, 'players.html', {'players': players})  
+         
 
 def batters(request):
     return render(request, 'batters.html')

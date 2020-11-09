@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="">
+<h1>Players</h1>
 
-
-</div>
+{% for player in players %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ player.name }}</span>
+      <p>Home Runs in 2020: {{ player.hr2020 }}</p>
+      <p>162 Game Projection: {{ player.hr162 }}</p>
+    </div>
+  </div>
+{% endfor %}
 
 {% endblock %}
