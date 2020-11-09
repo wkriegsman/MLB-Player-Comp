@@ -10,10 +10,17 @@ from .models import Batters, Pitchers, Player, Homeruns
 def home(request):
     return render(request, 'home.html')
 
+# index page
 def players(request):
     players = Player.objects.all()
     print(players)
     return render(request, 'players.html', {'players': players})  
+
+# show page
+def player_detail(request, player_id):
+    player = Player.objects.get(id=player_id)
+    context = {'player': player}
+    return render(request, 'players/detail.html', context) 
          
 
 def batters(request):

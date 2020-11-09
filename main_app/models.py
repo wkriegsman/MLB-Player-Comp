@@ -4,11 +4,10 @@ from django.db import models
 
 class Player(models.Model):
     name = models.CharField(max_length=40)
-    hr2020 = models.IntegerField()
-    hr162 = models.IntegerField()
+    team = models.CharField(max_length=50)
 
 class Homeruns(models.Model):
-    name = models.CharField(max_length=40)
+    player = models.ForeignKey(Player, on_delete = models.CASCADE)
     hr2020 = models.IntegerField()
     hr162 = models.IntegerField()
 

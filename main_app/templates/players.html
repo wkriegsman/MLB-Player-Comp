@@ -5,11 +5,14 @@
 
 {% for player in players %}
   <div class="card">
+   <a href="/players/{{ player.id}}">   
     <div class="card-content">
       <span class="card-title">{{ player.name }}</span>
-      <p>Home Runs in 2020: {{ player.hr2020 }}</p>
-      <p>162 Game Projection: {{ player.hr162 }}</p>
+      <p>Team: {{ player.team }}</p>
+      <!-- <p>Home Runs in 2020: {{ homeruns.hr2020 }}</p>
+      <p>162 Game Projection: {{ homeruns.hr162 }}</p> -->
     </div>
+    </a>
   </div>
 {% endfor %}
 
