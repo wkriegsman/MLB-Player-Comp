@@ -87,4 +87,17 @@ var myChart = new Chart(ctx, {
     }
 });
 </script>
+
+
 {% endblock %}
+
+
+<h1>Search Results</h1>
+
+<ul>
+  {% for batters in object_list %}
+    <li>
+      {{ batters.name }}
+    </li>
+  {% endfor %}
+</ul>

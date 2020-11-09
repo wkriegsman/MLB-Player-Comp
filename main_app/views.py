@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from django.views.generic import ListView
+from .models import Batters, Pitchers
 
 # Create your views here.
 def home(request):
@@ -10,6 +12,10 @@ def home(request):
 
 def batters(request):
     return render(request, 'batters.html')
+
+# class BattersResultsView(ListView):
+#     model = Batters
+#     template_name = 'batters.html'
 
 def pitchers(request):
     return render(request, 'pitchers.html')   
