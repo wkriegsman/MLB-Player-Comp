@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.http import JsonResponse
 from rest_framework.views import APIView
@@ -15,7 +15,7 @@ def home(request):
 def players(request):
     if request.method == 'POST':
         player_form = Player_Form(request.POST)
-        if player.form.is_valid():
+        if player_form.is_valid():
             player_form.save()
             return redirect('players')
     players = Player.objects.all()
@@ -28,7 +28,7 @@ def players(request):
 def player_detail(request, player_id):
     player = Player.objects.get(id=player_id)
     context = {'player': player}
-    return render(request, 'players/detail.html', context) 
+    return render(request, 'detail.html', context) 
          
 # edit and update
 def player_edit(request, player_id):
@@ -41,14 +41,14 @@ def player_edit(request, player_id):
   else:  
     player_form = Player_Form(instance=player)
   context = {'player': player, 'player_form': player_form}
-  return render(request, 'player/edit.html', context)
+  return render(request, 'edit.html', context)
 
 # delete
 def player_delete(request, player_id):
     Player.objects.get(id=player_id).delete()
     return redirect("players")
 
-    
+
 def batters(request):
     return render(request, 'batters.html')
 
