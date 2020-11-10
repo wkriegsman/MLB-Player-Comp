@@ -2,7 +2,13 @@
 
 
 {% block content %}
-
+<h1>Edit Player</h1>
+<div class="container">
+    <div class="row">
+    
+    <div class="col-9">
+<div class="card shadow">
+    <div class="card-body">
 <h1>Edit {{ player.name }}</h1>
 
 <form action="{% url 'player_edit' player.id %}" method="POST">
@@ -10,5 +16,9 @@
   {{ player_form.as_p }}
   <input class="btn btn-primary" type="submit" value="Update {{player.name}}">
 </form>
-
+</div>
+</div>
+</div>
+</div>
+</div>
 {% endblock %}

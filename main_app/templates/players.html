@@ -2,14 +2,15 @@
 
 {% block content %}
 <h1>Players</h1>
+
 <div class="container">
 <div class="row">
 
 <div class="col-9">
 {% for player in players %}
-  <div class="card">
+  <div class="card shadow bg-primary mb-3">
    <a href="/players/{{ player.id }}">   
-    <div class="card-body">
+    <div class="card-body text-white">
       <h5 class="card-title">{{ player.name }}</h5>
       <p class="card-text">Team: {{ player.team }}</p>
       <!-- <p>Home Runs in 2020: {{ homeruns.hr2020 }}</p>

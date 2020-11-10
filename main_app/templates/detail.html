@@ -6,17 +6,17 @@
     <div class="row">
 
 
-<div class="card">
-  <div class="card-content">
-    <span class="card-title">{{ player.name }}</span>
+<div class="card shadow w-50">
+  <div class="card-body">
+    <h5 class="card-title">{{ player.name }}</h5>
     <p>Team: {{ player.team }}</p>
     
-  </div>
-  
+
     <div class="card-action">
       <a href="{% url 'player_edit' player.id %}" class="btn btn-primary" role="button">Edit</a>
       <a href="{% url 'player_delete' player.id %}" class="btn btn-danger" role="button">Delete</a>
     </div>
+</div>
 </div>
 </div>
 </div>
