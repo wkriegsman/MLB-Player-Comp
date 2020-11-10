@@ -8,7 +8,7 @@
 <form action="{% url 'player_edit' player.id %}" method="POST">
   {% csrf_token %}
   {{ player_form.as_p }}
-  <input class="btn" type="submit" value="Update {{player.name}}">
+  <input class="btn btn-primary" type="submit" value="Update {{player.name}}">
 </form>
 
 {% endblock %}

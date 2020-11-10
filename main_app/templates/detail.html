@@ -2,6 +2,9 @@
 {% block content %}
 
 <h1>Player</h1>
+<div class="container">
+    <div class="row">
+
 
 <div class="card">
   <div class="card-content">
@@ -11,9 +14,11 @@
   </div>
   
     <div class="card-action">
-      <a href="{% url 'player_edit' player.id %}" class="btn blue">Edit</a>
-      <a class="btn red" href="{% url 'player_delete' player.id %}">Delete</a>
+      <a href="{% url 'player_edit' player.id %}" class="btn btn-primary" role="button">Edit</a>
+      <a href="{% url 'player_delete' player.id %}" class="btn btn-danger" role="button">Delete</a>
     </div>
+</div>
+</div>
 </div>
 
 {% endblock %}
